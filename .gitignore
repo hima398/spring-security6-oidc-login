@@ -138,4 +138,7 @@ fabric.properties
 !.idea/codeStyles
 !.idea/runConfigurations
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij+all# End of https://www.toptal.com/developers/gitignore/api/intellij
+# End of https://www.toptal.com/developers/gitignore/api/intellij+all
+
+# application.properties for local
+src/main/resources/application-local.properties
