@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Application OIDC Login with Spring Security 6</title>
+</head>
+<body>
+<div style="float: right" th:fragment="logout" sec:authorize="isAuthenticated()">
+    <div style="float:right">
+        <div>
+            <span style="font-weight:bold">User Name:</span>
+            <span sec:authentication="principal.attributes['name']"></span>
+        </div>
+        <div>
+            <form action="#" th:action="@{/logout}" method="post">
+                <input type="submit" value="Logout"/>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <h1>Demo Application</h1>
+</div>
+<div>
+    <span style="font-weight:bold">User Details:</span>
+    <ul>
+        <li th:each="attribute : ${attributes}">
+            <span style="font-weight:bold" th:text="${attribute.key}"></span>: <span th:text="${attribute.value}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
