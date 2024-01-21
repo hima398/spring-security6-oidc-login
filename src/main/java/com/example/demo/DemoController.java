@@ -25,16 +25,16 @@ public class DemoController {
         return modelAndView;
     }
 
-    @GetMapping("userdetail")
-    public ModelAndView userDetail(OAuth2AuthenticationToken token) {
+    @GetMapping("/profile")
+    public ModelAndView me(OAuth2AuthenticationToken token) {
 
-        var user = getUser(token);
-        var modelAndView = new ModelAndView("userdetail");
-        modelAndView.addObject("attributes", user);
+        var profile = getProfile(token);
+        var modelAndView = new ModelAndView("profile");
+        modelAndView.addObject("profile", profile);
         return modelAndView;
     }
 
-    private Map getUser(OAuth2AuthenticationToken token) {
+    private Map getProfile(OAuth2AuthenticationToken token) {
         var client = this.service.loadAuthorizedClient(token.getAuthorizedClientRegistrationId(), token.getName());
         var uri = client.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUri();
 

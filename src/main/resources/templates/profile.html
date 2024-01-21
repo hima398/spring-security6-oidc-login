@@ -22,9 +22,9 @@
     <h1>Demo Application</h1>
 </div>
 <div>
-    <span style="font-weight:bold">User Details:</span>
+    <span style="font-weight:bold">Profile:</span>
     <ul>
-        <li th:each="attribute : ${attributes}">
+        <li th:each="attribute : ${profile}">
             <span style="font-weight:bold" th:text="${attribute.key}"></span>: <span th:text="${attribute.value}"></span>
         </li>
     </ul>
